@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Pass</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        .page-container {
+            border: 1px solid #007bff; /* Authentic-looking page border */
+            border-radius: 15px; /* Rounded corners for a softer look */
+            width: 80%; /* Adjust the width as needed */
+            max-width: 700px; /* Maximum width to control content width */
+            margin: 50px auto; /* Center the container horizontally */
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .card {
+            border: none;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 26px;
+            color: #333;
+            font-weight: 500;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .card-text {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .card-text strong {
+            font-weight: 500;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 16px;
+            text-align: center;
+            color: #666;
+        }
+        .qr-code {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .qr-code img {
+            max-width: 150px;
+            height: auto;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .btn-download {
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: 500;
+            border-radius: 25px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <h2>Visitor Pass</h2>
+        <div class="card">
+            <h5 class="card-title">Visitor Details</h5>
+            <p class="card-text"><strong>Aadhar No:</strong> {{ aadhar_no }}</p>
+            <p class="card-text"><strong>Name:</strong> {{ name }}</p>
+            <p class="card-text"><strong>Gender:</strong> {{ gender }}</p>
+            <p class="card-text"><strong>Date of Birth:</strong> {{ dob }}</p>
+            <div class="qr-code">
+                <h6>QR Code for Verification:</h6>
+                <img src="data:image/png;base64,{{ qr_image }}" alt="QR Code">
+            </div>
+            <p class="footer"><strong>Expires:</strong> {{ expiration_time }}</p>
+        </div>
+        <a href="?download=true" class="btn btn-primary btn-download">Download as PDF</a>
+    </div>
+</body>
+</html>

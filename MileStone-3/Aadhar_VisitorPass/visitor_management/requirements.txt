@@ -1,0 +1,61 @@
+Django==5.0  
+opencv-python-headless==4.8.0.76  
+pytesseract==0.3.10  
+numpy==1.21.5
+
+# http://127.0.0.1:8000/upload/
+
+# [06-07-2024 21:42] : after opening the folder in the vs code then change the directory to root folder that is  visitor_management   by cd visitor_management
+# [06-07-2024 21:43] : then run command python manage.py runserver
+# [06-07-2024 21:44] : then in web portal http://127.0.0.1:8000/upload/ check it
+
+# mysql> show  databases;
+# +--------------------+
+# | Database           |
+# +--------------------+
+# | information_schema |
+# | mysql              |
+# | performance_schema |
+# | pro                |
+# | sakila             |
+# | sys                |
+# | visiocr            |
+# | visitor_db         |
+# +--------------------+
+# 8 rows in set (0.00 sec)
+
+# mysql> use visiocr;
+# Database changed
+# mysql> describe aadhar_app_aadhar;
+# +-----------+--------------+------+-----+----------+----------------+
+# | Field     | Type         | Null | Key | Default  | Extra          |
+# +-----------+--------------+------+-----+----------+----------------+
+# | id        | bigint       | NO   | PRI | NULL     | auto_increment |
+# | aadhar_no | varchar(14)  | NO   |     | NULL     |                |
+# | name      | varchar(100) | NO   |     | NULL     |                |
+# | gender    | varchar(10)  | NO   |     | NULL     |                |
+# | dob       | varchar(10)  | NO   |     | NULL     |                |
+# | qr_code   | varchar(255) | YES  |     | Verified |                |
+# +-----------+--------------+------+-----+----------+----------------+
+# 6 rows in set (0.00 sec)
+
+# mysql> select * from aadhar_aap_aadhar;
+# ERROR 1146 (42S02): Table 'visiocr.aadhar_aap_aadhar' doesn't exist
+# mysql> select * from aadhar_app_aadhar;
+# +----+----------------+-----------------------------+--------+------------+----------+
+# | id | aadhar_no      | name                        | gender | dob        | qr_code  |
+# +----+----------------+-----------------------------+--------+------------+----------+
+# |  1 | 8885 5949 8386 | Ketha Dhana Veera Chaitanya | MALE   | 22/04/2003 | Verified |
+# +----+----------------+-----------------------------+--------+------------+----------+
+# 1 row in set (0.00 sec)
+
+# mysql> select * from aadhar_aap_aadhar;
+# ERROR 1146 (42S02): Table 'visiocr.aadhar_aap_aadhar' doesn't exist
+# mysql> select * from aadhar_app_aadhar;
+# +----+----------------+-----------------------------+--------+------------+----------+
+# | id | aadhar_no      | name                        | gender | dob        | qr_code  |
+# +----+----------------+-----------------------------+--------+------------+----------+
+# |  1 | 8885 5949 8386 | Ketha Dhana Veera Chaitanya | MALE   | 22/04/2003 | Verified |
+# |  2 | 2705 4604 2585 | Ketha Naga Mohanrao         | MALE   | 02/10/1972 | Verified |
+# +----+----------------+-----------------------------+--------+------------+----------+
+# 2 rows in set (0.00 sec)

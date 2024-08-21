@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Pass PDF</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            max-width: 50px; /* Further reduced logo size */
+            height: auto;
+        }
+        h4 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px; /* Slightly reduced font size */
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        h6 {
+            color: #ffa600;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px; /* Slightly reduced font size */
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .card {
+            border: none;
+            padding: 10px;
+        }
+        .card-title {
+            font-size: 22px; /* Slightly reduced font size */
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .card-text {
+            font-size: 16px; /* Slightly reduced font size */
+            margin: 10px 0;
+            color: #555;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: center;
+            color: #e63737;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        .qr-code {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .qr-code img {
+            max-width: 120px; /* Slightly reduced QR code size */
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: #fff;
+        }
+        .details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .details p {
+            width: 48%;
+            margin: 5px 0;
+        }
+        .details p.full-width {
+            width: 100%;
+        }
+        .signature {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .signature p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .signature .line {
+            border-top: 1px solid #555;
+            margin: 10px auto;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="static/images/file.jpg" alt="Company Logo" /> 
+        </div>
+        <h4>VISIOCR - Visitor Pass</h4>
+        <div class="card">
+            <h5 class="card-title">Visitor Details</h5>
+            <div class="details">
+                <p class="card-text"><strong>Aadhar No:</strong> {{ aadhar_no }}</p>
+                <p class="card-text"><strong>Name:</strong> {{ name }}</p>
+                <p class="card-text"><strong>Gender:</strong> {{ gender }}</p>
+                <p class="card-text"><strong>Date of Birth:</strong> {{ dob }}</p>
+            </div>
+            <div class="qr-code">
+                <h6>Scan QR Code for Verification:</h6>
+                <img src="data:image/png;base64,{{ qr_image }}" alt="QR Code">
+            </div>
+            <p class="footer"><strong>Expires:</strong> {{ expiration_time }}</p>
+        </div>
+        <div class="signature">
+            <p>**** Authorized ****</p>
+            <div class="line"></div>
+        </div>
+    </div>
+</body>
+</html>
